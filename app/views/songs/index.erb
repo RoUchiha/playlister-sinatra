@@ -1,0 +1,7 @@
+<h2>All Songs</h2>
+
+<ol>
+    <% @songs.each do |s| %>
+    <li><a href="/songs/<%=s.id%>"><%= s.name %> - <%= s.artist %></a></li>
+    <% end %>
+</ol>
