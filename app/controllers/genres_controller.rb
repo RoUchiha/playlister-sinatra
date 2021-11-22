@@ -1,13 +1,11 @@
-require 'rack-flash'
-
 class GenresController < ApplicationController
-
-    use Rack::Flash
-
     get '/genres' do
-        @genres = Genre.all.sort
-
-        erb :'genres/index'
+      @genres = Genre.all
+      erb :'/genres/index'
     end
-    
-end
+  
+    get '/genres/:slug' do
+      @genre = Genre.find {|genre| genre.slug == params[:slug]}
+      erb :'/genres/show'
+    end
+  end 
